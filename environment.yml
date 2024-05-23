@@ -1,0 +1,13 @@
+name: BashBinder
+channels:
+  - conda-forge
+dependencies:
+  - numpy
+  - pandas
+  - matplotlib
+  - pip
+  - pip:
+    - jupyterlab
+    - jupyterlab-git
+    - bash_kernel
+#    - pyecharts
