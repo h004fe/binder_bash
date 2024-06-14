@@ -1,3 +1,4 @@
 ed
 nano
 xterm
+man-db
