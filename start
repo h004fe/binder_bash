@@ -1,4 +1,5 @@
 #!/bin/bash
+yes | unminimize
 python -m bash_kernel.install
 
 exec "$@"
