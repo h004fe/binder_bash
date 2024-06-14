@@ -1,5 +1,7 @@
 #!/bin/bash
-yes | unminimize
+yes | unminimize && \
+    apt-get install -y man-db && \
+    rm -r /var/lib/apt/lists/*
 python -m bash_kernel.install
 
 exec "$@"
