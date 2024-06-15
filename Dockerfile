@@ -1,5 +1,5 @@
 FROM python:3.9-slim
-RUN pip install --no-cache notebook jupyterlab
+RUN pip install --no-cache notebook jupyterlab jupyterlab-git bash_kernel
 ENV HOME=/tmp
 
 # create user with a home directory
@@ -18,10 +18,13 @@ WORKDIR ${HOME}
 COPY . ${HOME}
 USER root
 RUN chown -R ${NB_UID} ${HOME}
+RUN yes | unminimize
 
 USER ${NB_USER}
 ENV PYTHONUNBUFFERED=1
 #COPY /python3-login /usr/local/bin/python3-login
 #COPY /repo2docker-entrypoint /usr/local/bin/repo2docker-entrypoint
 #ENTRYPOINT ["/usr/local/bin/repo2docker-entrypoint"]
+RUN chmod +x "${HOME}/start"
+RUN ${HOME}/start
 CMD ["jupyter", "notebook", "--ip", "0.0.0.0"]
