@@ -1,4 +1,4 @@
-FROM h004fe/binder_bash:latest
+FROM h004fe/binder_bash:main
 
 ARG NB_USER=jovyan
 ARG NB_UID=1000
