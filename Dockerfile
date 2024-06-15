@@ -39,7 +39,7 @@ WORKDIR ${HOME}
 
 #RUN apt-get -qq update && apt-get -qq install --yes --no-install-recommends gettext-base less unzip > /dev/null && apt-get -qq purge && apt-get -qq clean && rm -rf /var/lib/apt/lists/*
 RUN apt-get -qq update
-RUN apt-get -qq install --yes --no-install-recommends gettext-base less unzip > /dev/null
+RUN apt-get -qq install -y gettext-base less unzip
 RUN apt-get -qq purge
 RUN apt-get -qq clean
 RUN rm -rf /var/lib/apt/lists/*
