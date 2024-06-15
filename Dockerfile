@@ -79,8 +79,8 @@ WORKDIR ${REPO_DIR}
 RUN chown ${NB_USER}:${NB_USER} ${REPO_DIR}
 ENV PATH=${HOME}/.local/bin:${REPO_DIR}/.local/bin:${PATH}
 ENV CONDA_DEFAULT_ENV=${KERNEL_PYTHON_PREFIX}
-RUN ls
-COPY --chown=1000:1000 src/environment.yml ${REPO_DIR}/environment.yml
+
+#COPY --chown=1000:1000 src/environment.yml ${REPO_DIR}/environment.yml
 
 #RUN apt-get -qq update && apt-get install --yes --no-install-recommends $(cat ${REPO_DIR}/apt.txt) && apt-get -qq purge && apt-get -qq clean && rm -rf /var/lib/apt/lists/*
 RUN apt-get -qq update
