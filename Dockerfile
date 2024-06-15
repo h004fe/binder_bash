@@ -16,7 +16,7 @@ WORKDIR ${HOME}
 
 USER ${NB_USER}
 ENV PYTHONUNBUFFERED=1
-COPY /python3-login /usr/local/bin/python3-login
-COPY /repo2docker-entrypoint /usr/local/bin/repo2docker-entrypoint
-ENTRYPOINT ["/usr/local/bin/repo2docker-entrypoint"]
+#COPY /python3-login /usr/local/bin/python3-login
+#COPY /repo2docker-entrypoint /usr/local/bin/repo2docker-entrypoint
+#ENTRYPOINT ["/usr/local/bin/repo2docker-entrypoint"]
 CMD ["jupyter", "notebook", "--ip", "0.0.0.0"]
