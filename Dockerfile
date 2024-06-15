@@ -19,7 +19,7 @@ COPY . ${HOME}
 USER root
 RUN chown -R ${NB_UID} ${HOME}
 #RUN rm /etc/dpkg/dpkg.cfg.d/excludes
-RUN apt-get update && apt-get install -y man-db && \
+RUN apt-get update && apt-get install -y man-db manpages nano ed git && \
     rm -r /var/lib/apt/lists/*
 
 USER ${NB_USER}
