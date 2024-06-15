@@ -3,7 +3,7 @@ FROM docker.io/library/buildpack-deps:jammy
 ENV DEBIAN_FRONTEND=noninteractive
 ENV DEBCONF_NOWARNINGS yes
 RUN apt-get -qq update && apt-get -qq install --yes  --no-install-recommends locales  > /dev/null
-RUN apt-get -qq purge && /usr/bin/apt-get -qq clean && rm -rf /var/lib/apt/lists/*
+RUN apt-get -qq purge && apt-get clean && rm -rf /var/lib/apt/lists/*
 RUN /usr/bin/apt-get -qq update && /usr/bin/apt-get -qq install --yes --no-install-recommends locales > /dev/null && /usr/bin/apt-get -qq purge && /usr/bin/apt-get -qq clean && rm -rf /var/lib/apt/lists/*
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen &&     locale-gen
 ENV LC_ALL=en_US.UTF-8     LANG=en_US.UTF-8     LANGUAGE=en_US.UTF-8
