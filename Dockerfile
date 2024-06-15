@@ -22,8 +22,20 @@ ENV USER=${NB_USER} HOME=/home/${NB_USER}
 RUN which groupadd
 
 #RUN groupadd --gid ${NB_UID} ${NB_USER} && useradd --comment "Default user" --create-home --gid ${NB_UID} --no-log-init --shell /bin/bash --uid ${NB_UID} ${NB_USER}
-RUN groupadd -gid ${NB_UID} ${NB_USER}
-RUN useradd --comment "Default user" --create-home --gid ${NB_UID} --no-log-init --shell /bin/bash --uid ${NB_UID} ${NB_USER}
+#RUN groupadd -gid ${NB_UID} ${NB_USER}
+#RUN useradd --comment "Default user" --create-home --gid ${NB_UID} --no-log-init --shell /bin/bash --uid ${NB_UID} ${NB_USER}
+
+# create user with a home directory
+ARG NB_USER
+ARG NB_UID
+ENV USER ${NB_USER}
+ENV HOME /home/${NB_USER}
+
+RUN adduser --disabled-password \
+    --gecos "Default user" \
+    --uid ${NB_UID} \
+    ${NB_USER}
+WORKDIR ${HOME}
 
 #RUN apt-get -qq update && apt-get -qq install --yes --no-install-recommends gettext-base less unzip > /dev/null && apt-get -qq purge && apt-get -qq clean && rm -rf /var/lib/apt/lists/*
 RUN apt-get -qq update
