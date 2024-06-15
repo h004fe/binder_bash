@@ -14,6 +14,11 @@ RUN adduser --disabled-password \
     ${NB_USER}
 WORKDIR ${HOME}
 
+# Make sure the contents of our repo are in ${HOME}
+COPY . ${HOME}
+USER root
+RUN chown -R ${NB_UID} ${HOME}
+
 USER ${NB_USER}
 ENV PYTHONUNBUFFERED=1
 #COPY /python3-login /usr/local/bin/python3-login
