@@ -73,7 +73,8 @@ USER root
 ARG REPO_DIR=${HOME}
 ENV REPO_DIR=${REPO_DIR}
 #if [ $? -eq 0 ]; then echo TRUE; else echo FALSE; fi
-RUN if [ ! -d "${REPO_DIR}" ]; then /usr/bin/install -o ${NB_USER} -g ${NB_USER} -d "${REPO_DIR}"; fi
+RUN /usr/bin/install -o ${NB_USER} -g ${NB_USER} -d "${REPO_DIR}"
+#RUN if [ ! -d "${REPO_DIR}" ]; then /usr/bin/install -o ${NB_USER} -g ${NB_USER} -d "${REPO_DIR}"; fi
 WORKDIR ${REPO_DIR}
 RUN chown ${NB_USER}:${NB_USER} ${REPO_DIR}
 ENV PATH=${HOME}/.local/bin:${REPO_DIR}/.local/bin:${PATH}
