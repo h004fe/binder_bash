@@ -1,4 +1,5 @@
 #!/bin/bash
+whoami
 sudo rm /etc/dpkg/dpkg.cfg.d/excludes
 #yes | unminimize && \
 #    apt-get install -y man-db && \
