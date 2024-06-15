@@ -9,7 +9,10 @@ RUN apt-get -qq purge
 RUN apt-get -qq clean
 RUN rm -rf /var/lib/apt/lists/*
 
-RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen &&     locale-gen
+#RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && locale-gen
+RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
+RUN locale-gen
+
 ENV LC_ALL=en_US.UTF-8     LANG=en_US.UTF-8     LANGUAGE=en_US.UTF-8
 ENV SHELL=/bin/bash
 ARG NB_USER
