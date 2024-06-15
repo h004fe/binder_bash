@@ -38,9 +38,9 @@ RUN adduser --disabled-password \
 WORKDIR ${HOME}
 
 #RUN apt-get -qq update && apt-get -qq install --yes --no-install-recommends gettext-base less unzip > /dev/null && apt-get -qq purge && apt-get -qq clean && rm -rf /var/lib/apt/lists/*
-RUN apt-get -qq update && apt-get -qq install -y gettext-base
-RUN apt-get -qq update && apt-get -qq install -y less
-RUN apt-get -qq update && apt-get -qq install -y unzip
+RUN apt-get -qq update && apt-get -qq install --yes  --no-install-recommends gettext-base
+RUN apt-get -qq update && apt-get -qq install --yes  --no-install-recommends less
+RUN apt-get -qq update && apt-get -qq install --yes  --no-install-recommends unzip
 RUN apt-get -qq purge
 RUN apt-get -qq clean
 RUN rm -rf /var/lib/apt/lists/*
@@ -57,13 +57,13 @@ ENV MAMBA_EXE=${CONDA_DIR}/bin/mamba
 ENV CONDA_PLATFORM=linux-64
 ENV KERNEL_PYTHON_PREFIX=${NB_PYTHON_PREFIX}
 ENV PATH=${NB_PYTHON_PREFIX}/bin:${CONDA_DIR}/bin:${NPM_DIR}/bin:${PATH}
-COPY --chown=1000:1000 build_script_files/-2fopt-2fvenv-2flib-2fpython3-2e11-2fsite-2dpackages-2frepo2docker-2fbuildpacks-2fconda-2factivate-2dconda-2esh-e70a7b /etc/profile.d/activate-conda.sh
-COPY --chown=1000:1000 build_script_files/-2fopt-2fvenv-2flib-2fpython3-2e11-2fsite-2dpackages-2frepo2docker-2fbuildpacks-2fconda-2fenvironment-2epy-2d3-2e10-2dlinux-2d64-2elock-8fa955 /tmp/env/environment.lock
-COPY --chown=1000:1000 build_script_files/-2fopt-2fvenv-2flib-2fpython3-2e11-2fsite-2dpackages-2frepo2docker-2fbuildpacks-2fconda-2finstall-2dbase-2denv-2ebash-6a6072 /tmp/install-base-env.bash
+#COPY --chown=1000:1000 build_script_files/-2fopt-2fvenv-2flib-2fpython3-2e11-2fsite-2dpackages-2frepo2docker-2fbuildpacks-2fconda-2factivate-2dconda-2esh-e70a7b /etc/profile.d/activate-conda.sh
+#COPY --chown=1000:1000 build_script_files/-2fopt-2fvenv-2flib-2fpython3-2e11-2fsite-2dpackages-2frepo2docker-2fbuildpacks-2fconda-2fenvironment-2epy-2d3-2e10-2dlinux-2d64-2elock-8fa955 /tmp/env/environment.lock
+#COPY --chown=1000:1000 build_script_files/-2fopt-2fvenv-2flib-2fpython3-2e11-2fsite-2dpackages-2frepo2docker-2fbuildpacks-2fconda-2finstall-2dbase-2denv-2ebash-6a6072 /tmp/install-base-env.bash
 
 #RUN TIMEFORMAT='time: %3R' bash -c 'time /tmp/install-base-env.bash' && rm -rf /tmp/install-base-env.bash /tmp/env
-RUN TIMEFORMAT='time: %3R' bash -c 'time /tmp/install-base-env.bash'
-RUN rm -rf /tmp/install-base-env.bash /tmp/env
+#RUN TIMEFORMAT='time: %3R' bash -c 'time /tmp/install-base-env.bash'
+#RUN rm -rf /tmp/install-base-env.bash /tmp/env
 
 #RUN mkdir -p ${NPM_DIR} && chown -R ${NB_USER}:${NB_USER} ${NPM_DIR}
 RUN mkdir -p ${NPM_DIR}
