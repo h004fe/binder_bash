@@ -18,7 +18,7 @@ WORKDIR ${HOME}
 COPY . ${HOME}
 USER root
 RUN chown -R ${NB_UID} ${HOME}
-RUN apt-get update && rm /etc/dpkg/dpkg.cfg.d/excludes
+#RUN apt-get update && rm /etc/dpkg/dpkg.cfg.d/excludes
 RUN apt-get update && apt-get install -y man-db manpages nano ed git && \
     rm -r /var/lib/apt/lists/*
 
