@@ -94,16 +94,18 @@ USER ${NB_USER}
 #RUN TIMEFORMAT='time: %3R' bash -c 'time ${MAMBA_EXE} env update -p ${NB_PYTHON_PREFIX} --file "environment.yml" && time ${MAMBA_EXE} clean --all -f -y && ${MAMBA_EXE} list -p ${NB_PYTHON_PREFIX} '
 #RUN TIMEFORMAT='time: %3R' bash -c 'time ${MAMBA_EXE} env update -p ${NB_PYTHON_PREFIX} --file "environment.yml" && time ${MAMBA_EXE} clean --all -f -y && ${MAMBA_EXE} list -p ${NB_PYTHON_PREFIX} '
 
+RUN pip install --no-cache notebook jupyterlab
+
 USER root
 #COPY --chown=1000:1000 src/ ${REPO_DIR}/
 #LABEL repo2docker.ref="e7d9ce798fbc449b8e107528c9be0590de2c4acb"
 LABEL repo2docker.repo="https://github.com/h004fe/binder_bash"
 #LABEL repo2docker.version="2024.03.0+21.g09f3d53"
 USER ${NB_USER}
-RUN chmod +x postBuild
-RUN ./postBuild
-RUN chmod +x "${REPO_DIR}/start"
-ENV R2D_ENTRYPOINT="${REPO_DIR}/start"
+#RUN chmod +x postBuild
+#RUN ./postBuild
+#RUN chmod +x "${REPO_DIR}/start"
+#ENV R2D_ENTRYPOINT="${REPO_DIR}/start"
 ENV PYTHONUNBUFFERED=1
 COPY /python3-login /usr/local/bin/python3-login
 COPY /repo2docker-entrypoint /usr/local/bin/repo2docker-entrypoint
