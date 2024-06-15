@@ -1,10 +1,1 @@
 #!/bin/bash
-adduser --disabled-password \
-    --gecos "Default user" \
-    --uid ${NB_UID} \
-    ${NB_USER}
-whoami
-sudo rm /etc/dpkg/dpkg.cfg.d/excludes
-#yes | unminimize && \
-#    apt-get install -y man-db && \
-#    rm -r /var/lib/apt/lists/*
