@@ -22,7 +22,7 @@ ENV USER=${NB_USER} HOME=/home/${NB_USER}
 RUN which groupadd
 
 #RUN groupadd --gid ${NB_UID} ${NB_USER} && useradd --comment "Default user" --create-home --gid ${NB_UID} --no-log-init --shell /bin/bash --uid ${NB_UID} ${NB_USER}
-RUN groupadd
+RUN groupadd -gid
 RUN useradd --comment "Default user" --create-home --gid ${NB_UID} --no-log-init --shell /bin/bash --uid ${NB_UID} ${NB_USER}
 
 #RUN apt-get -qq update && apt-get -qq install --yes --no-install-recommends gettext-base less unzip > /dev/null && apt-get -qq purge && apt-get -qq clean && rm -rf /var/lib/apt/lists/*
