@@ -11,3 +11,7 @@ dependencies:
     - jupyterlab-git
     - bash_kernel
 #    - pyecharts
+additional_build_steps:
+  append_base:
+    - RUN rm /etc/dpkg/dpkg.cfg.d/excludes
+    - RUN yes | unminimize && apt-get install -y man-db && rm -r /var/lib/apt/lists/*
