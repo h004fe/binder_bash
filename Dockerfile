@@ -1,5 +1,5 @@
-#FROM docker.io/library/buildpack-deps:jammy
-FROM debian
+FROM docker.io/library/buildpack-deps:jammy-debian
+#FROM debian
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get -qq update && apt-get -qq install --yes --no-install-recommends locales > /dev/null && apt-get -qq purge && apt-get -qq clean && rm -rf /var/lib/apt/lists/*
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen &&     locale-gen
