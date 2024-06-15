@@ -95,10 +95,10 @@ USER ${NB_USER}
 #RUN TIMEFORMAT='time: %3R' bash -c 'time ${MAMBA_EXE} env update -p ${NB_PYTHON_PREFIX} --file "environment.yml" && time ${MAMBA_EXE} clean --all -f -y && ${MAMBA_EXE} list -p ${NB_PYTHON_PREFIX} '
 
 USER root
-COPY --chown=1000:1000 src/ ${REPO_DIR}/
-LABEL repo2docker.ref="e7d9ce798fbc449b8e107528c9be0590de2c4acb"
+#COPY --chown=1000:1000 src/ ${REPO_DIR}/
+#LABEL repo2docker.ref="e7d9ce798fbc449b8e107528c9be0590de2c4acb"
 LABEL repo2docker.repo="https://github.com/h004fe/binder_bash"
-LABEL repo2docker.version="2024.03.0+21.g09f3d53"
+#LABEL repo2docker.version="2024.03.0+21.g09f3d53"
 USER ${NB_USER}
 RUN chmod +x postBuild
 RUN ./postBuild
