@@ -1,6 +1,1 @@
-ed
-nano
-xterm
-apt-utils
-manpages
-man-db
+
