@@ -1,0 +1,30 @@
+# change directory to tmp
+cd "/home/jovyan/UNIXプログラミング環境 (アスキードワンゴ)/tmp"
+
+# writing contents
+str1="To be or not to be"
+str2="This is the question."
+
+# make junk file
+echo "-------- [in the bash environment] --------"
+echo "$ ed"
+echo "a"
+echo $str1
+echo "."
+echo "w junk"
+echo $str1 > junk
+echo "19"
+echo "q"
+# make temp file
+echo "$ ed"
+echo "a"
+echo $str2
+echo "."
+echo "w temp"
+echo $str2 > temp
+echo "2"
+echo "q"
+echo "-------------------------------------------"
+
+#remove void
+rm -rf void
