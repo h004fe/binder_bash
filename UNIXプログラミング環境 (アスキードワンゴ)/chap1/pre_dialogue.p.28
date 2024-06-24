@@ -1,0 +1,41 @@
+# change directory to tmp
+cd "/home/jovyan/UNIXプログラミング環境 (アスキードワンゴ)/tmp"
+
+# writing contents
+str_l1="Great fleas have little fleas"
+str_l2="  upon their backs to bite ’em,"
+str_l3="And little fleas have lesser fleas,"
+str_l4="  and so ad infinitum."
+str_l5="And the great fleas themselves, in turn,"
+str_l6="  have greater fleas to go on;"
+str_l7="While these again have greater still,"
+str_l8="  and greater still, and so on."
+
+LF=$'\n'
+
+# make contents str
+contents="${str_l1}${LF}${str_l2}${LF}${str_l3}${LF}${str_l4}${LF}"
+contents+="${str_l5}${LF}${str_l6}${LF}${str_l7}${LF}${str_l8}"
+
+# make poem file
+echo "-------- [in the bash environment] --------"
+echo "$ ed"
+echo "a"
+echo "$str_l1"
+echo "$str_l2"
+echo "$str_l3"
+echo "$str_l4"
+echo "$str_l5"
+echo "$str_l6"
+echo "$str_l7"
+echo "$str_l8"
+echo "."
+echo "w poem"
+echo "$contents" > poem
+echo "265"
+echo "q"
+echo "$"
+echo "-------------------------------------------"
+
+#remove void
+rm -rf void

@@ -1,0 +1,5 @@
+# Initialize
+cur_dir=$(pwd)
+cd "/home/jovyan/UNIXプログラミング環境 (アスキードワンゴ)/tmp/" && \
+rm -rf * && \
+cd "$cur_dir"
