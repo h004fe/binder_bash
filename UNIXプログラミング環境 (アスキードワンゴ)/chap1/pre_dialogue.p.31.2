@@ -1,0 +1,52 @@
+# change directory to tmp
+cd "/home/jovyan/UNIXプログラミング環境 (アスキードワンゴ)/tmp"
+
+# writing contents1
+str_l1="Great fleas have little fleas"
+str_l2="  upon their backs to bite ’em,"
+str_l3="And little fleas have lesser fleas,"
+str_l4="  and so ad infinitum."
+str_l5="And the great fleas themselves, in turn,"
+str_l6="  have greater fleas to go on;"
+str_l7="While these again have greater still,"
+str_l8="  and greater still, and so on."
+
+LF=$'\n'
+
+# make contents1 str
+contents1="${str_l1}${LF}${str_l2}${LF}${str_l3}${LF}${str_l4}${LF}"
+contents1+="${str_l5}${LF}${str_l6}${LF}${str_l7}${LF}${str_l8}"
+
+# make poem file
+echo "-------- [in the bash environment] --------"
+echo "making poem by using echo"
+echo "$contents1" > poem
+echo "-------------------------------------------"
+
+# writing contents2
+str_l1="Great fleas have little fleas"
+str_l2="  upon their backs to bite them,"
+str_l3="And little fleas have lesser fleas,"
+str_l4="  and so on ad infinitum."
+str_l5="And the great fleas themselves, in turn,"
+str_l6="  have greater fleas to go on;"
+str_l7="While these again have greater still,"
+str_l8="  and greater still, and so on."
+
+LF=$'\n'
+
+# make contents2 str
+contents2="${str_l1}${LF}${str_l2}${LF}${str_l3}${LF}${str_l4}${LF}"
+contents2+="${str_l5}${LF}${str_l6}${LF}${str_l7}${LF}${str_l8}"
+
+# make new_poem file
+echo "-------- [in the bash environment] --------"
+echo "making new_poem by using echo"
+echo "$contents2" > new_poem
+echo "-------------------------------------------"
+
+#remove void
+rm -rf void
+
+#remove void
+rm -rf void
