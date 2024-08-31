@@ -1,0 +1,24 @@
+# change directory to tmp
+cd "/home/jovyan/UNIXプログラミング環境 (アスキードワンゴ)/tmp"
+
+# writing contents
+str1="now is the time"
+str2="for all good people"
+
+# make junk file
+echo "-------- [in the bash environment] --------"
+echo "$ ed"
+echo "a"
+echo $str1
+echo $str2
+echo "."
+echo "w junk"
+echo $str1 >> junk
+echo $str2 >> junk
+echo "36"
+echo "q"
+sleep 1
+echo "-------------------------------------------"
+
+#remove void
+rm -rf void
